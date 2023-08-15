@@ -1,0 +1,50 @@
+.table {
+
+
+    td,
+    th {
+        width: 15%;
+    }
+
+    i {
+        padding: 3px 10px;
+        cursor: pointer;
+    }
+
+    &_conteiner {
+        margin: 20px 4%;
+        padding: 5px;
+    }
+
+    &_edit {
+        color: rgb(44, 129, 249);
+
+        &:hover {
+            color: rgb(9, 9, 194);
+        }
+    }
+
+    &_delete {
+        color: coral;
+
+        &:hover {
+            color: crimson;
+        }
+    }
+
+    td>button {
+        border: none;
+        background-color: white;
+    }
+
+    &__toast {
+        box-shadow: 6px 10px 5px -2px rgba(0,0,0,0.4);
+-webkit-box-shadow: 6px 10px 5px -2px rgba(0,0,0,0.4);
+-moz-box-shadow: 6px 10px 5px -2px rgba(0,0,0,0.4) !important;
+    }
+
+    th input{
+        width: 100%;
+    }
+
+}

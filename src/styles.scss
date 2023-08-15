@@ -1,0 +1,29 @@
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+html {
+    min-height: 100vh;
+}
+
+body {
+    max-width: 100vw;
+    max-height: 100vh;
+    background-color: gainsboro;
+
+}
+
+.title{
+    padding: 30px;
+    background-color: #72047e;
+    text-align: center;
+    color: white;
+}
+
+.flex-center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

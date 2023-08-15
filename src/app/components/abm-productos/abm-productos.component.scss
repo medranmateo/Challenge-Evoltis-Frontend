@@ -1,0 +1,26 @@
+.abm{
+
+    width: 100vw;
+    height: 100vh;
+
+    &_card{
+        width: 70%;
+    }
+
+    &_input{
+        margin: 10px 15px;
+    }
+
+    &_form{
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .block{
+        display: block;
+    }
+
+    &_footer{
+        margin: 20px 0;
+    }
+}

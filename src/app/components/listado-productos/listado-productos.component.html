@@ -1,0 +1,94 @@
+
+
+<section class="table">
+    <header class="title">
+        <span>
+            <h1>Productos</h1>
+        </span>
+    </header>
+
+    <div class="table_conteiner">
+        <p-table #dt [value]="productos" dataKey="id"
+        [rows]="10" [showCurrentPageReport]="true" [rowsPerPageOptions]="[10,25,50]" [loading]="loading"
+        [paginator]="true" currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries" [responsive]="true">
+
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Codigo</th>
+                    <th>Nombre</th>
+                    <th>Categoria</th>
+                    <th>Stock</th>
+                    <th>Precio</th>
+                    <th>
+                        <button pButton [routerLink]="['/addProducto']" type="button" icon="pi pi-plus" iconPos="left"
+                            class="p-button-info">
+                            Agregar
+                        </button>
+                    </th>
+                </tr>
+
+                <tr>
+                    <th>
+                        <input pInputText type="text" (input)="applyFilter($event)" placeholder="Filtrar">
+                    </th>
+                    <th>
+                        <input pInputText type="text" (input)="applyFilter($event)" placeholder="Filtrar">
+                    </th>
+                    <th>
+                        <input pInputText type="text" (input)="applyFilter($event)" placeholder="Filtrar">
+                    </th>
+                    <th>
+                        <input pInputText type="text" (input)="applyFilter($event)" placeholder="Filtrar">
+                    </th>
+                    <th>
+                        <input pInputText type="text" (input)="applyFilter($event)" placeholder="Filtrar">
+                    </th>
+                    <th>
+                        <!-- ...  ... -->
+                    </th>
+                </tr>
+
+
+            </ng-template>
+
+
+            <ng-template pTemplate="body" let-product>
+                <tr>
+                    <td>{{product.codigo}}</td>
+                    <td>{{product.nombre}}</td>
+                    <td>{{product.categoria}}</td>
+                    <td>{{product.stock}}</td>
+                    <td>{{product.precio | currency: 'USD'}}</td>
+                    <td>
+                        <button (click)="editProduct(product.id)">
+                            <i class="pi pi-pencil table_edit" style="font-size: 2rem"></i>
+                        </button>
+
+                        <button (click)="showConfirm(product)">
+                            <i *ngIf="!loading" class="pi pi-trash table_delete" style="font-size: 2rem"></i>
+                        </button>
+                    </td>
+                </tr>
+
+                <p-toast position="bottom-center" key="c" (onClose)="onReject()" [baseZIndex]="5000"
+                    class="table_toast">
+                    <ng-template let-message pTemplate="message">
+                        <div class="flex flex-column" style="flex: 1">
+                            <div class="text-center">
+                                <i class="pi pi-exclamation-triangle" style="font-size: 3rem"></i>
+                                <h4>{{message.summary}}</h4>
+                                <p>{{message.detail}}</p>
+                            </div>
+                            <div class="grid p-fluid">
+                                <div class="col-6">
+                                    <button type="button" pButton (click)="onConfirm(product.id)" label="Eliminar"
+                                        class="p-button-danger mb-2"></button>
+                                </div>
+                            </div>
+                        </div>
+                    </ng-template>
+                </p-toast>
+            </ng-template>
+        </p-table>
+    </div>
+</section>

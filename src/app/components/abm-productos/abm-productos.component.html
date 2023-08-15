@@ -1,0 +1,55 @@
+<div class="abm flex-center">
+
+    <div class="abm_card">
+        <p-card>
+            <ng-template pTemplate="header">
+                <h1 class="title">{{ operacion }}</h1>
+            </ng-template>
+        
+            <form [formGroup]="productForm" class="abm_form">
+
+                <span class="p-float-label abm_input">
+                    <input id="float-input" type="text" pInputText formControlName="codigo"> 
+                    <label for="float-input">Código</label>
+                </span>
+
+                <span class="p-float-label abm_input">
+                    <input id="float-input" type="text" pInputText formControlName="nombre"> 
+                    <label for="float-input">Nombre</label>
+                </span>
+        
+                <span class="p-float-label abm_input">
+                    <input id="float-input" type="text" pInputText formControlName="categoria"> 
+                    <label for="float-input">Categoría</label>
+                </span>
+
+                <div class="field col-12 md:col-3 abm_input">
+                    <label class="block" for="withoutgrouping">Stock</label>
+                    <p-inputNumber formControlName="stock" mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
+                    </p-inputNumber>
+                </div>
+                
+                <div class="field col-12 md:col-3 abm_input">
+                    <label class="block" for="withoutgrouping">Precio</label>
+                    <p-inputNumber formControlName="precio" mode="decimal" inputId="withoutgrouping" [useGrouping]="false">
+                    </p-inputNumber>
+                </div>
+
+            </form>
+        
+            <ng-template pTemplate="footer">
+                <div class="abm_footer flex-center">
+                    <p-button label={{operacion}} icon="pi pi-check"
+                        (onClick)="addOrEditProduct()">
+                    </p-button>
+                    
+                    <p-button label="Cancelar" icon="pi pi-times"
+                        styleClass="p-button-secondary" 
+                        [style]="{'margin-left': '1em'}"
+                        [routerLink]="['/listProductos']">
+                    </p-button>
+                </div>
+            </ng-template>
+        </p-card>
+    </div>
+</div>
